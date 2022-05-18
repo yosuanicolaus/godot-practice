@@ -19,7 +19,7 @@ func initialize(start_position, player_position):
 	velocity = velocity.rotated(Vector3.UP, rotation.y)
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# warning-ignore:return_value_discarded
 	move_and_slide(velocity)
 
