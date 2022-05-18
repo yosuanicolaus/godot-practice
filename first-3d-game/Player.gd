@@ -25,8 +25,8 @@ func _physics_process(delta):
 		direction = direction.normalized()
 		$Pivot.look_at(translation + direction, Vector3.UP)
 
-	velocity.x += direction.x * speed
-	velocity.z += direction.z * speed
+	velocity.x += direction.x * speed * delta
+	velocity.z += direction.z * speed * delta
 	velocity.y -= direction.y * delta
 
 	velocity = move_and_slide(velocity, Vector3.UP)
