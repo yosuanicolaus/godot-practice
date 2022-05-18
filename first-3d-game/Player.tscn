@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://first-3d-game/art/player.glb" type="PackedScene" id=1]
+
+[sub_resource type="CapsuleShape" id=1]
+
+[node name="Player" type="KinematicBody"]
+
+[node name="Pivot" type="Spatial" parent="."]
+
+[node name="player" parent="Pivot" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.128253, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.718, 0, 0, 0, 0.772, 0, 0.251733, 0.119784 )
+shape = SubResource( 1 )
