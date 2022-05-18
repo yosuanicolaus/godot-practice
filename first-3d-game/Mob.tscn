@@ -1,12 +1,14 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://first-3d-game/art/mob.glb" type="PackedScene" id=1]
+[ext_resource path="res://first-3d-game/Mob.gd" type="Script" id=2]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.59
 height = 1.84
 
 [node name="Mob" type="KinematicBody"]
+script = ExtResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
 
@@ -18,3 +20,5 @@ shape = SubResource( 1 )
 
 [node name="VisibilityNotifier" type="VisibilityNotifier" parent="."]
 transform = Transform( 1.34007, 0, 0, 0, 0.704064, 0, 0, 0, 1.68998, 0, 0.314538, 0.30308 )
+
+[connection signal="screen_exited" from="VisibilityNotifier" to="." method="_on_VisibilityNotifier_screen_exited"]

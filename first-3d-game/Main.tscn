@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://first-3d-game/Player.tscn" type="PackedScene" id=1]
 
@@ -7,6 +7,17 @@ extents = Vector3( 30, 1, 30 )
 
 [sub_resource type="CubeMesh" id=2]
 size = Vector3( 60, 2, 60 )
+
+[sub_resource type="CylinderMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=4]
+albedo_color = Color( 1, 0.286275, 0, 1 )
+
+[sub_resource type="Curve3D" id=5]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -15.9409, 0, -16.0036, 0, 0, 0, 0, 0, 0, 15.8153, 0, -16.0036, 0, 0, 0, 0, 0, 0, 16.251, 0, 16.0314, 0, 0, 0, 0, 0, 0, -15.9581, 0, 16.0314, 0, 0, 0, 0, 0, 0, -15.9409, 0, -16.0036 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
 
 [node name="Main" type="Node"]
 
@@ -32,3 +43,39 @@ transform = Transform( 1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19 )
 projection = 1
 size = 19.04
+
+[node name="Cylinders" type="Spatial" parent="."]
+
+[node name="Cylinders" type="Spatial" parent="Cylinders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1, -16 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Cylinders/Cylinders"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Cylinders2" type="Spatial" parent="Cylinders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 1, 16 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Cylinders/Cylinders2"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Cylinders3" type="Spatial" parent="Cylinders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1, -16 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Cylinders/Cylinders3"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="Cylinders4" type="Spatial" parent="Cylinders"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 1, 16 )
+
+[node name="MeshInstance" type="MeshInstance" parent="Cylinders/Cylinders4"]
+mesh = SubResource( 3 )
+material/0 = SubResource( 4 )
+
+[node name="SpawnPath" type="Path" parent="."]
+curve = SubResource( 5 )
+
+[node name="SpawnLocation" type="PathFollow" parent="SpawnPath"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.9409, 0, -16.0036 )
