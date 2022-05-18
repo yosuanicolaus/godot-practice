@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://chess/Board.gd" type="Script" id=1]
+
+[node name="Chess" type="Node2D"]
+
+[node name="Board" type="Node2D" parent="."]
+script = ExtResource( 1 )
+cell_size = 63
+
+[node name="WhitePanel" type="ColorRect" parent="Board"]
+visible = false
+margin_right = 63.0
+margin_bottom = 63.0
+color = Color( 0.886275, 0.886275, 0.886275, 1 )
+
+[node name="BlackPanel" type="ColorRect" parent="Board"]
+visible = false
+margin_right = 63.0
+margin_bottom = 63.0
+color = Color( 0.113725, 0.113725, 0.113725, 1 )
