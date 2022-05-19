@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://3d-art/Range Rover.glb" type="PackedScene" id=1]
 [ext_resource path="res://3d-art/Rotator.gd" type="Script" id=2]
@@ -8,6 +8,11 @@ extents = Vector3( 10, 1, 10 )
 
 [sub_resource type="PlaneMesh" id=2]
 size = Vector2( 20, 20 )
+
+[sub_resource type="SpatialMaterial" id=3]
+albedo_color = Color( 0.0431373, 0.0784314, 0.266667, 1 )
+metallic = 0.07
+roughness = 0.15
 
 [node name="Main" type="Spatial"]
 
@@ -19,7 +24,7 @@ shape = SubResource( 1 )
 
 [node name="MeshInstance" type="MeshInstance" parent="Ground"]
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 3 )
 
 [node name="Range Rover" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.344, 0.72 )

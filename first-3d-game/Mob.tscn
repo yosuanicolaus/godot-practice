@@ -6,7 +6,7 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 0.512, 0.574, 1.275 )
 
-[node name="Mob" type="KinematicBody"]
+[node name="Mob" type="KinematicBody" groups=["mob"]]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.316123, 0 )
 collision_layer = 2
 collision_mask = 0

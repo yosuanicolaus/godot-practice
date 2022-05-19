@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://chess/Board.gd" type="Script" id=1]
+[ext_resource path="res://chess/godot_walk.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
 
 [node name="Chess" type="Node2D"]
 
@@ -19,3 +21,8 @@ visible = false
 margin_right = 63.0
 margin_bottom = 63.0
 color = Color( 0.113725, 0.113725, 0.113725, 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 568, 164 )
+texture = ExtResource( 3 )
+script = ExtResource( 2 )
