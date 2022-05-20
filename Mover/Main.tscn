@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Mover/instance_mover.gd" type="Script" id=1]
+[ext_resource path="res://Mover/instancer.gd" type="Script" id=1]
+[ext_resource path="res://Mover/Bouncer.tscn" type="PackedScene" id=2]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
-mover_count = 40
+mover_count = 0
+
+[node name="Bouncer" parent="." instance=ExtResource( 2 )]
+position = Vector2( 302, 148 )
