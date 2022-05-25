@@ -1,20 +1,13 @@
-[gd_scene load_steps=6 format=2]
+/*
 
-[ext_resource path="res://kenney/ShipWreck.tscn" type="PackedScene" id=1]
-[ext_resource path="res://kenney/water/Water.material" type="Material" id=2]
-
-[sub_resource type="PlaneMesh" id=1]
-material = ExtResource( 2 )
-size = Vector2( 100, 100 )
-
-[sub_resource type="Shader" id=2]
-code = "/*
 Realistic Water Shader for Godot 3.4 
+
 Modified to work with Godot 3.4 with thanks to jmarceno.
+
 Copyright (c) 2019 UnionBytes, Achim Menzel (alias AiYori)
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \"Software\"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 -- UnionBytes 
 -- YouTube: www.youtube.com/user/UnionBytes
 */
@@ -178,37 +171,4 @@ void fragment()
 	SPECULAR = 0.2 + depth_blend_pow * 0.4;
 	NORMALMAP = normalmap;
 	NORMALMAP_DEPTH = 1.25;
-}"
-
-[sub_resource type="ShaderMaterial" id=3]
-shader = SubResource( 2 )
-shader_param/wave_speed = 0.5
-shader_param/wave_a = Plane( 1, 1, 0.35, 3 )
-shader_param/wave_b = Plane( 1, 0.6, 0.3, 1.55 )
-shader_param/wave_c = Plane( 1, 1.3, 0.25, 0.9 )
-shader_param/sampler_scale = Vector2( 0.25, 0.25 )
-shader_param/sampler_direction = Vector2( 0.05, 0.04 )
-shader_param/uv_sampler_scale = Vector2( 0.25, 0.25 )
-shader_param/uv_sampler_strength = 0.04
-shader_param/foam_level = 0.5
-shader_param/refraction = 0.075
-shader_param/color_deep = null
-shader_param/color_shallow = null
-shader_param/beers_law = 2.0
-shader_param/depth_offset = -0.75
-shader_param/projector = null
-
-[node name="Test" type="Spatial"]
-
-[node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.562809, 0.356216, -0.745893, 0, 0.902377, 0.430948, 0.826587, 0.242541, -0.507865, -4.423, 5.42893, -4.19958 )
-size = 10.0
-
-[node name="ShipWreck" parent="." instance=ExtResource( 1 )]
-
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.797096, 0.580151, -0.167518, 0.459168, -0.40215, 0.792111, 0.392177, -0.708307, -0.586939, -4.518, 6.238, 0 )
-
-[node name="MeshInstance" type="MeshInstance" parent="."]
-mesh = SubResource( 1 )
-material/0 = SubResource( 3 )
+}
