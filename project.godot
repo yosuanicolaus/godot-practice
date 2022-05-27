@@ -16,8 +16,6 @@ config/icon="res://icon.png"
 
 [display]
 
-window/size/width=720
-window/size/height=540
 window/size/fullscreen=true
 
 [layer_names]
